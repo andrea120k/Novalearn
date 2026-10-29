@@ -1,0 +1,476 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Videos educativos para aprender inglés en NovaLearn.">
+
+    <title>Videos | NovaLearn</title>
+
+    <!-- Tipografía Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Estilos principales de NovaLearn -->
+    <link rel="stylesheet" href="estilo.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body.videos-page {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: #fff9f7;
+            color: #24243a;
+        }
+
+        .videos-hero {
+            padding: 75px 22px 60px;
+            text-align: center;
+            background:
+                radial-gradient(circle at 10% 20%, #ffe6a5 0, transparent 18%),
+                radial-gradient(circle at 90% 15%, #ffdce0 0, transparent 20%),
+                linear-gradient(135deg, #fff5ed, #fffaf5 55%, #f1f5ff);
+        }
+
+        .videos-label {
+            display: inline-block;
+            margin-bottom: 18px;
+            padding: 9px 18px;
+            border: 2px solid #ffd6d9;
+            border-radius: 50px;
+            background: #fff;
+            color: #c91f32;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 1.2px;
+        }
+
+        .videos-hero h1 {
+            margin: 0 auto 16px;
+            font-size: clamp(32px, 5vw, 58px);
+            font-weight: 900;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .videos-hero h1 span {
+            color: #ef3340;
+        }
+
+        .videos-hero > p {
+            max-width: 650px;
+            margin: 0 auto;
+            color: #6c7085;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .videos-button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 24px;
+            border: 0;
+            border-radius: 50px;
+            background: #ef3340;
+            color: #fff;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: background .2s ease, transform .2s ease;
+        }
+
+        .videos-button:hover {
+            background: #c91f32;
+            transform: translateY(-2px);
+        }
+
+        /* Banner */
+        .videos-banner {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .videos-banner img {
+            display: block;
+            width: 100%;
+            max-height: 360px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Biblioteca */
+        .videos-library {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 65px 24px 75px;
+        }
+
+        .videos-heading {
+            max-width: 780px;
+            margin: 0 auto 40px;
+            text-align: center;
+        }
+
+        .videos-kicker {
+            display: inline-block;
+            margin-bottom: 10px;
+            color: #ef3340;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .videos-heading h2 {
+            margin: 0 0 15px;
+            font-size: clamp(27px, 4vw, 40px);
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .videos-heading > p {
+            margin: 0;
+            color: #6c7085;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .teacher-note {
+            margin-top: 25px;
+            padding: 20px 22px;
+            border: 2px solid #ffe0a1;
+            border-radius: 18px;
+            background: #fff5d9;
+            color: #5f4b22;
+            font-size: 13px;
+            line-height: 1.9;
+            text-align: left;
+        }
+
+        .teacher-note strong {
+            color: #3b321f;
+            font-weight: 900;
+        }
+
+        /* Tarjetas */
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 28px;
+        }
+
+        .video-card {
+            min-width: 0;
+            overflow: hidden;
+            border: 2px solid #efedf1;
+            border-radius: 24px;
+            background: #fff;
+            box-shadow: 0 10px 28px #24243a0b;
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 35px #24243a14;
+        }
+
+        /* Reproductor de archivos locales */
+        .video-frame {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #24243a;
+        }
+
+        .video-frame video {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #24243a;
+        }
+
+        .video-info {
+            padding: 20px 23px;
+        }
+
+        .video-info h3 {
+            margin: 0 0 8px;
+            color: #24243a;
+            font-size: 21px;
+            font-weight: 900;
+        }
+
+        .video-info p {
+            margin: 0;
+            color: #6c7085;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* Mensaje final */
+        .videos-final {
+            margin: 0 24px 65px;
+            padding: 45px 25px;
+            border-radius: 28px;
+            background: linear-gradient(135deg, #ffe4e7, #fff0d0);
+            text-align: center;
+        }
+
+        .videos-final h2 {
+            margin: 0 0 12px;
+            font-size: clamp(27px, 4vw, 38px);
+            font-weight: 900;
+        }
+
+        .videos-final p {
+            max-width: 580px;
+            margin: 0 auto;
+            color: #6c7085;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        /* Adaptación a tabletas */
+        @media (max-width: 900px) {
+            .videos-grid {
+                gap: 20px;
+            }
+
+            .video-info {
+                padding: 18px;
+            }
+        }
+
+        /* Adaptación a celulares */
+        @media (max-width: 700px) {
+            .videos-hero {
+                padding: 52px 18px 45px;
+            }
+
+            .videos-library {
+                padding: 45px 16px 55px;
+            }
+
+            .videos-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .video-card {
+                border-radius: 20px;
+            }
+
+            .video-info {
+                padding: 17px 19px;
+            }
+
+            .videos-final {
+                margin: 0 16px 40px;
+                padding: 35px 20px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="videos-page">
+
+    <!-- ENCABEZADO Y MENÚ -->
+    <header class="site-header">
+        <div class="header-container">
+
+            <a href="index.html" class="site-brand" aria-label="NovaLearn - Inicio">
+                <img src="imagenes.1/LOGO.png" alt="Logo de NovaLearn">
+            </a>
+
+            <nav class="main-nav" aria-label="Navegación principal">
+                <a href="index.html">Inicio</a>
+                <a href="guias.html">Actividades</a>
+                <a href="videos.html" class="active" aria-current="page">Videos</a>
+                <a href="juegos.html">Juegos</a>
+                <a href="index.html#nosotros">Nosotros</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+
+        <!-- PRESENTACIÓN -->
+        <section class="videos-hero">
+            <span class="videos-label">PROYECTO SENA</span>
+
+            <h1>
+                Aprende con nuestros
+                <span>videos</span>
+            </h1>
+
+            <p>
+                Explora nuestros videos educativos y aprende inglés
+                de una manera dinámica y entretenida.
+            </p>
+
+            <a href="#biblioteca-videos" class="videos-button">
+                Explorar videos ↓
+            </a>
+        </section>
+
+       
+
+        <!-- BIBLIOTECA DE VIDEOS -->
+        <section class="videos-library" id="biblioteca-videos">
+
+            <div class="videos-heading">
+                <span class="videos-kicker">APRENDE Y PRACTICA</span>
+
+                <h2>Nuestra biblioteca de videos</h2>
+
+                <p>
+                    Aquí encontrarás cinco videos educativos para
+                    complementar tu aprendizaje del inglés.
+                    Pulsa reproducir para comenzar.
+                </p>
+
+                <div class="teacher-note">
+                    <strong>Reconocimiento especial</strong><br>
+                    Este espacio educativo cuenta con material audiovisual
+                    relacionado con el aprendizaje del inglés, en colaboración
+                    con el profesor Diego Álvarez, docente de la
+                    Institución Educativa Villas de San Ignacio.
+                </div>
+            </div>
+
+            <div class="videos-grid">
+
+                <!-- VIDEO 1 -->
+                <article class="video-card">
+                    <div class="video-frame">
+                        <video controls preload="metadata" playsinline>
+                            <source src="videos/video1.mp4" type="video/mp4">
+                            Tu navegador no puede reproducir este video.
+                        </video>
+                    </div>
+
+                    <div class="video-info">
+                        <h3>Video 1</h3>
+                        <p>Reproduce el video y practica lo aprendido.</p>
+                    </div>
+                </article>
+
+                <!-- VIDEO 2 -->
+                <article class="video-card">
+                    <div class="video-frame">
+                        <video controls preload="metadata" playsinline>
+                            <source src="videos/video2.mp4" type="video/mp4">
+                            Tu navegador no puede reproducir este video.
+                        </video>
+                    </div>
+
+                    <div class="video-info">
+                        <h3>Video 2</h3>
+                        <p>Refuerza tus conocimientos de inglés.</p>
+                    </div>
+                </article>
+
+                <!-- VIDEO 3 -->
+                <article class="video-card">
+                    <div class="video-frame">
+                        <video controls preload="metadata" playsinline>
+                            <source src="videos/video3.mp4" type="video/mp4">
+                            Tu navegador no puede reproducir este video.
+                        </video>
+                    </div>
+
+                    <div class="video-info">
+                        <h3>Video 3</h3>
+                        <p>Escucha, observa y continúa aprendiendo.</p>
+                    </div>
+                </article>
+
+                <!-- VIDEO 4 -->
+                <article class="video-card">
+                    <div class="video-frame">
+                        <video controls preload="metadata" playsinline>
+                            <source src="videos/video4.mp4" type="video/mp4">
+                            Tu navegador no puede reproducir este video.
+                        </video>
+                    </div>
+
+                    <div class="video-info">
+                        <h3>Video 4</h3>
+                        <p>Practica a tu ritmo y repite las lecciones.</p>
+                    </div>
+                </article>
+
+                <!-- VIDEO 5 -->
+                <article class="video-card">
+                    <div class="video-frame">
+                        <video controls preload="metadata" playsinline>
+                            <source src="videos/video5.mp4" type="video/mp4">
+                            Tu navegador no puede reproducir este video.
+                        </video>
+                    </div>
+
+                    <div class="video-info">
+                        <h3>Video 5</h3>
+                        <p>¡Sigue practicando inglés con NovaLearn!</p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- MENSAJE FINAL -->
+        <section class="videos-final">
+            <span class="videos-kicker">¡SIGUE APRENDIENDO!</span>
+
+            <h2>Aprende a tu propio ritmo</h2>
+
+            <p>
+                Continúa explorando NovaLearn y pon en práctica
+                lo que aprendas en cada actividad.
+            </p>
+
+            <a href="juegos.html" class="videos-button">
+                Ir a los juegos 🎮
+            </a>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="site-footer">
+        <div class="footer-container">
+
+            <div class="footer-brand">NovaLearn</div>
+
+            <p>Aprende inglés a tu ritmo.</p>
+
+            <p class="footer-copy">
+                Proyecto formativo del SENA · NovaLearn
+            </p>
+
+        </div>
+    </footer>
+
+</body>
+</html>

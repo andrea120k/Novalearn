@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Juegos educativos | NovaLearn</title>
+    <meta name="description" content="Aprende inglés jugando con NovaLearn.">
+
+    <!-- Fuente Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="juegos.css">
+</head>
+
+<body class="games-page">
+
+    <!-- ENCABEZADO -->
+    <header class="site-header">
+        <div class="header-container">
+
+            <a href="index.html" class="site-brand" aria-label="Volver al inicio">
+                <img src="imagenes.1/LOGO.png" alt="Logo de NovaLearn">
+            </a>
+
+            <nav class="main-nav" aria-label="Menú principal">
+                <a href="index.html">Inicio</a>
+                <a href="guias.html">Actividades</a>
+                <a href="videos.html">Videos</a>
+                <a href="juegos.html" class="active">Juegos</a>
+                <a href="index.html#nosotros">Nosotros</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main class="games-main">
+
+        <!-- PORTADA DE JUEGOS -->
+        <section class="games-hero">
+            <span class="games-label">¡APRENDE JUGANDO!</span>
+
+            <h1>¡Bienvenido a la zona de juegos!</h1>
+
+            <p>
+                Practica inglés, gana puntos y diviértete.
+                Elige tu juego favorito y demuestra lo que sabes.
+            </p>
+
+            <div class="games-stats">
+                <div class="stat-card">
+                    <span class="stat-number" id="total-games">6</span>
+                    <span class="stat-label">Juegos</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-number" id="total-points">0</span>
+                    <span class="stat-label">Puntos de esta sesión</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- MENÚ DE JUEGOS -->
+        <section class="games-menu-section" id="games-menu">
+
+            <div class="games-section-heading">
+                <span class="games-kicker">ESCOGE TU RETO</span>
+                <h2>¿A qué quieres jugar hoy?</h2>
+                <p>¡Cada juego es una oportunidad para aprender algo nuevo!</p>
+            </div>
+
+            <div class="games-grid">
+
+                <button class="game-card memory-card" data-game="memory" type="button">
+                    <span class="game-emoji">🧠</span>
+                    <span class="game-number">JUEGO 1</span>
+                    <span class="game-title">Encuentra la pareja</span>
+                    <span class="game-description">
+                        Encuentra las parejas de palabras e imágenes.
+                    </span>
+                    <span class="game-difficulty">Fácil</span>
+                    <span class="game-open">¡Jugar ahora! →</span>
+                </button>
+
+                <button class="game-card order-card" data-game="order" type="button">
+                    <span class="game-emoji">🔤</span>
+                    <span class="game-number">JUEGO 2</span>
+                    <span class="game-title">Ordena la oración</span>
+                    <span class="game-description">
+                        Pon las palabras en el orden correcto.
+                    </span>
+                    <span class="game-difficulty">Fácil - medio</span>
+                    <span class="game-open">¡Jugar ahora! →</span>
+                </button>
+
+                <button class="game-card search-card" data-game="search" type="button">
+                    <span class="game-emoji">🔎</span>
+                    <span class="game-number">JUEGO 3</span>
+                    <span class="game-title">Sopa de letras</span>
+                    <span class="game-description">
+                        Encuentra palabras en inglés escondidas.
+                    </span>
+                    <span class="game-difficulty">Fácil - medio</span>
+                    <span class="game-open">¡Jugar ahora! →</span>
+                </button>
+
+                <button class="game-card quiz-card" data-game="quiz" type="button">
+                    <span class="game-emoji">⭐</span>
+                    <span class="game-number">JUEGO 4</span>
+                    <span class="game-title">Quiz de inglés</span>
+                    <span class="game-description">
+                        Responde preguntas y demuestra lo que sabes.
+                    </span>
+                    <span class="game-difficulty">Fácil - medio</span>
+                    <span class="game-open">¡Jugar ahora! →</span>
+                </button>
+
+                <button class="game-card complete-card" data-game="complete" type="button">
+                    <span class="game-emoji">✏️</span>
+                    <span class="game-number">JUEGO 5</span>
+                    <span class="game-title">Completa la palabra</span>
+                    <span class="game-description">
+                        Descubre qué letra falta en cada palabra.
+                    </span>
+                    <span class="game-difficulty">Fácil - medio</span>
+                    <span class="game-open">¡Jugar ahora! →</span>
+                </button>
+
+                <button class="game-card guess-card" data-game="guess" type="button">
+                    <span class="game-emoji">💡</span>
+                    <span class="game-number">JUEGO 6</span>
+                    <span class="game-title">Adivina la palabra</span>
+                    <span class="game-description">
+                        Lee las pistas y adivina en inglés.
+                    </span>
+                    <span class="game-difficulty">Fácil - medio</span>
+                    <span class="game-open">¡Jugar ahora! →</span>
+                </button>
+
+            </div>
+        </section>
+
+        <!-- ÁREA DONDE SE MOSTRARÁ EL JUEGO ELEGIDO -->
+        <section class="game-play-section" id="game-play" hidden>
+
+            <div class="game-play-top">
+                <button class="back-games-button" id="back-to-games" type="button">
+                    ← Volver a los juegos
+                </button>
+
+                <div class="current-score">
+                    ⭐ Puntos: <span id="current-points">0</span>
+                </div>
+            </div>
+
+            <div class="game-panel">
+                <div id="game-content">
+                    <!-- juegos.js mostrará aquí el juego seleccionado -->
+                </div>
+            </div>
+
+        </section>
+
+        <!-- MENSAJE FINAL -->
+        <section class="games-footer-message">
+            <span aria-hidden="true">🌟</span>
+            <h2>¡Cada intento te ayuda a aprender!</h2>
+            <p>Diviértete, practica y sigue descubriendo el inglés.</p>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p class="footer-brand">NovaLearn</p>
+            <p>Un proyecto educativo desarrollado en el marco de la formación del SENA.</p>
+            <p class="footer-copy">© 2026 NovaLearn. Proyecto educativo.</p>
+        </div>
+    </footer>
+
+    <!-- LÓGICA DE LOS JUEGOS -->
+    <script src="juegos.js"></script>
+
+</body>
+</html>

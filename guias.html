@@ -1,0 +1,447 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guías de aprendizaje de inglés de NovaLearn.">
+    <title>Actividades | NovaLearn</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="estilo.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body.activities-page {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #fff9f7;
+            color: #292b38;
+        }
+
+        .activities-hero {
+            padding: 65px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #fff0ec, #fff8e7, #edf5ff);
+        }
+
+        .activities-label {
+            display: inline-block;
+            margin-bottom: 15px;
+            padding: 8px 17px;
+            border-radius: 30px;
+            background: #ffe0db;
+            color: #c83436;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .activities-hero h1 {
+            margin: 0 0 16px;
+            color: #c92f3b;
+            font-size: clamp(30px, 5vw, 48px);
+        }
+
+        .activities-hero p {
+            max-width: 680px;
+            margin: 0 auto 25px;
+            color: #55596b;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .activities-hero-button {
+            display: inline-block;
+            padding: 13px 24px;
+            border-radius: 12px;
+            background: #d93640;
+            color: white;
+            font-weight: 700;
+            text-decoration: none;
+            transition: .2s;
+        }
+
+        .activities-hero-button:hover {
+            background: #b92330;
+            transform: translateY(-2px);
+        }
+
+        .activities-intro {
+            max-width: 1050px;
+            margin: auto;
+            padding: 42px 22px 15px;
+            text-align: center;
+        }
+
+        .activities-intro h2 {
+            margin: 0 0 12px;
+            font-size: clamp(23px, 3vw, 31px);
+        }
+
+        .activities-intro p {
+            max-width: 760px;
+            margin: 0 auto 15px;
+            color: #686b79;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .institution-note {
+            max-width: 800px;
+            margin: 22px auto 0;
+            padding: 18px 22px;
+            border-left: 4px solid #d93640;
+            border-radius: 10px;
+            background: white;
+            color: #55596b;
+            font-size: 13px;
+            line-height: 1.9;
+            text-align: left;
+            box-shadow: 0 4px 18px rgba(52, 42, 52, .05);
+        }
+
+        .institution-note strong {
+            color: #c92f3b;
+        }
+
+        .activities-stats {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        .activities-stat {
+            padding: 10px 17px;
+            border: 1px solid #f2dcd8;
+            border-radius: 12px;
+            background: white;
+            color: #55596b;
+            font-size: 13px;
+        }
+
+        .activities-stat strong {
+            color: #d93640;
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: auto;
+            padding: 32px 24px 65px;
+        }
+
+        .activity-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            min-width: 0;
+            padding: 24px;
+            border: 1px solid #f0e5e2;
+            border-radius: 19px;
+            background: white;
+            box-shadow: 0 6px 22px rgba(52, 42, 52, .055);
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(52, 42, 52, .11);
+        }
+
+        .pdf-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 68px;
+            height: 76px;
+            margin-bottom: 18px;
+            border-radius: 15px;
+            background: #fff0ed;
+            color: #d93640;
+            font-size: 21px;
+            font-weight: 800;
+        }
+
+        .activity-number {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 7px 12px;
+            border-radius: 8px;
+            background: #ffe0db;
+            color: #c92f3b;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .activity-card h3 {
+            margin: 0 0 10px;
+            color: #303143;
+            font-size: 19px;
+        }
+
+        .activity-card p {
+            flex: 1;
+            margin: 0 0 22px;
+            color: #686b79;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .activity-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .activity-button {
+            display: inline-flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+            min-width: 110px;
+            padding: 11px 12px;
+            border: 1px solid #d93640;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            transition: .2s;
+        }
+
+        .activity-button.open {
+            background: #d93640;
+            color: white;
+        }
+
+        .activity-button.open:hover {
+            background: #b92330;
+        }
+
+        .activity-button.download {
+            background: white;
+            color: #c92f3b;
+        }
+
+        .activity-button.download:hover {
+            background: #fff0ed;
+        }
+
+        .activity-button.unavailable {
+            border-color: #e3e3e8;
+            background: #f2f2f5;
+            color: #858594;
+            cursor: default;
+        }
+
+        @media (max-width: 900px) {
+            .activities-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 18px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .activities-hero {
+                padding: 48px 18px;
+            }
+
+            .activities-grid {
+                grid-template-columns: 1fr;
+                max-width: 430px;
+                padding-right: 18px;
+                padding-left: 18px;
+            }
+
+            .institution-note {
+                margin-right: 18px;
+                margin-left: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body class="activities-page">
+
+    <!-- ENCABEZADO Y MENÚ -->
+    <header class="site-header">
+        <div class="header-container">
+
+            <a class="site-brand" href="index.html" aria-label="NovaLearn - Inicio">
+                <img src="imagenes.1/LOGO.png" alt="Logo de NovaLearn">
+            </a>
+
+            <nav class="main-nav" aria-label="Navegación principal">
+                <a href="index.html">Inicio</a>
+                <a href="guias.html" aria-current="page">Actividades</a>
+                <a href="videos.html">Videos</a>
+                <a href="juegos.html">Juegos</a>
+                <a href="index.html#nosotros">Nosotros</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+
+        <!-- BANNER -->
+        <section class="activities-hero">
+            <span class="activities-label">¡Aprender también es practicar!</span>
+
+            <h1>¡Es hora de practicar!</h1>
+
+            <p>
+                Explora nuestras guías de inglés, refuerza tus conocimientos
+                y aprende paso a paso. Abre o descarga las guías en PDF
+                para estudiar cuando quieras.
+            </p>
+
+            <a class="activities-hero-button" href="#lista-actividades">
+                Explorar actividades ↓
+            </a>
+        </section>
+
+        <!-- INTRODUCCIÓN -->
+        <section class="activities-intro" id="lista-actividades">
+
+            <h2>Tus guías de aprendizaje</h2>
+
+            <p>
+                Aquí encontrarás 30 actividades para practicar inglés,
+                reforzar tus conocimientos y continuar aprendiendo.
+                Selecciona la actividad que deseas consultar y abre
+                o descarga su guía en PDF.
+            </p>
+
+            <div class="institution-note">
+                Estas guías de aprendizaje fueron proporcionadas por la
+                <strong>Institución Educativa Villas de San Ignacio</strong>
+                como apoyo al proceso de formación y al aprendizaje del inglés.
+                NovaLearn reúne este material para facilitar su consulta
+                y contribuir al aprendizaje de los estudiantes.
+            </div>
+
+            <div class="activities-stats">
+                <div class="activities-stat">
+                    <strong>30</strong> actividades
+                </div>
+
+                <div class="activities-stat">
+                    <strong>PDF</strong> para estudiar
+                </div>
+
+                <div class="activities-stat">
+                    <strong>Inglés</strong> paso a paso
+                </div>
+            </div>
+
+        </section>
+
+        <!-- TARJETAS DE LAS 30 ACTIVIDADES -->
+        <section
+            class="activities-grid"
+            id="activities-grid"
+            aria-label="Listado de actividades en PDF">
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">NovaLearn</div>
+
+            <p class="footer-copy">
+                Proyecto educativo del SENA · Aprende a tu ritmo.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const totalActividades = 30;
+        const contenedor = document.getElementById("activities-grid");
+
+        for (let indice = 1; indice <= totalActividades; indice++) {
+
+            const archivo = `actividad${indice}.pdf`;
+            const ruta = `guias/${archivo}`;
+
+            const tarjeta = document.createElement("article");
+            tarjeta.className = "activity-card";
+
+            tarjeta.innerHTML = `
+                <div class="pdf-icon" aria-hidden="true">PDF</div>
+
+                <span class="activity-number">
+                    ACTIVIDAD ${indice}
+                </span>
+
+                <h3>Actividad ${indice}</h3>
+
+                <p>
+                    Consulta la guía en PDF y realiza la actividad propuesta.
+                </p>
+
+                <div class="activity-actions">
+
+                    <a class="activity-button open" href="${ruta}" >
+                        Ver PDF ↗
+                    </a>
+
+                    <a class="activity-button download"
+                       href="${ruta}"
+                       download="${archivo}">
+                        Descargar ↓
+                    </a>
+
+                </div>
+            `;
+
+            const botonVer = tarjeta.querySelector(".activity-button.open");
+            const botonDescargar = tarjeta.querySelector(".activity-button.download");
+
+            function marcarComoPendiente() {
+                botonVer.classList.add("unavailable");
+                botonVer.textContent = "PDF pendiente";
+                botonVer.removeAttribute("href");
+                botonVer.removeAttribute("target");
+                botonVer.removeAttribute("rel");
+                botonVer.setAttribute("aria-disabled", "true");
+
+                botonDescargar.classList.add("unavailable");
+                botonDescargar.textContent = "No disponible";
+                botonDescargar.removeAttribute("href");
+                botonDescargar.removeAttribute("download");
+                botonDescargar.setAttribute("aria-disabled", "true");
+            }
+
+            fetch(ruta, { method: "HEAD" })
+                .then(respuesta => {
+                    if (!respuesta.ok) {
+                        marcarComoPendiente();
+                    }
+                })
+                .catch(() => {
+                    // Si el navegador no permite comprobar el PDF,
+                    // se mantienen los enlaces para intentar abrirlo.
+                });
+
+            contenedor.appendChild(tarjeta);
+        }
+    </script>
+
+</body>
+</html>
